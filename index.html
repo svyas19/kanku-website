@@ -53,9 +53,10 @@
                         <div class="swiper-slide">
                             <img src="photos/awards/award1.jpg" alt="Award Achievement 1" loading="lazy">
                         </div>
-                        <!-- Add more award slides if you have them -->
                     </div>
                     <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
             </div>
         </section>
@@ -74,6 +75,8 @@
                         </div>
                     </div>
                     <div class="swiper-pagination"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
                 </div>
             </div>
         </section>
@@ -122,17 +125,25 @@
                 loop: true,
                 pagination: {
                     el: '.swiper-pagination',
-                    clickable: true
+                    clickable: true,
+                    dynamicBullets: true
                 },
                 autoplay: {
-                    delay: 3000,
+                    delay: 4000,
                     disableOnInteraction: false
                 },
                 slidesPerView: 1,
-                spaceBetween: 20,
+                spaceBetween: 30,
                 effect: 'fade',
                 fadeEffect: {
                     crossFade: true
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
+                },
+                keyboard: {
+                    enabled: true
                 }
             });
         });
