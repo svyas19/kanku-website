@@ -73,7 +73,7 @@ header::after {
 }
 
 .logo {
-    width: 150px;
+    width: 200px;
     height: auto;
     border-radius: 50%;
     border: 3px solid var(--text-color);
@@ -405,6 +405,10 @@ a:focus, button:focus {
     h2 {
         font-size: 2rem;
     }
+
+    .logo {
+        width: 180px;
+    }
     
     .swiper-container {
         height: 350px;
@@ -445,7 +449,7 @@ a:focus, button:focus {
     }
     
     .logo {
-        width: 120px;
+        width: 150px;
     }
     
     .section-content {
