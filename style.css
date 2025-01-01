@@ -1,39 +1,43 @@
+/* General Styles */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #fefefe; /* Light background */
-    color: #333; /* Dark text for readability */
+    background-color: #282828; /* Dark gray background */
+    color: #e0e0e0; /* Light gray text */
+    overflow-x: hidden;
 }
 
+/* Header */
 header {
     text-align: center;
-    padding: 40px 0;
-    background: linear-gradient(to bottom, #fdd835, #ffeb3b); /* Yellow gradient */
-    color: #333; /* Dark text for contrast */
+    padding: 50px 0;
+    background: linear-gradient(to bottom, #1e1e1e, #3a3a3a); /* Subtle dark gradient */
+    color: #f5c16c; /* Soft gold text */
+    animation: fade-in 1.5s ease-in-out; /* Fade-in animation */
 }
 
 .logo {
-    width: 150px;
+    width: 120px;
     margin-bottom: 20px;
 }
 
 .main-title {
     font-size: 2.5em;
     margin: 10px 0;
-    font-weight: bold;
 }
 
 .subtitle {
-    font-size: 1.3em;
+    font-size: 1.2em;
     margin: 5px 0;
     font-style: italic;
 }
 
+/* Navigation */
 nav {
-    background-color: #ffcc00; /* Golden navigation bar */
+    background-color: #3a3a3a; /* Dark gray nav bar */
     padding: 15px 0;
-    border-bottom: 2px solid #333;
+    border-bottom: 2px solid #444;
 }
 
 .navbar {
@@ -49,39 +53,68 @@ nav {
 }
 
 .navbar a {
-    color: #333; /* Dark text for links */
+    color: #f5c16c; /* Soft gold links */
     text-decoration: none;
     font-size: 1.1em;
     font-weight: bold;
     padding: 5px 10px;
+    transition: transform 0.3s ease, color 0.3s ease; /* Hover animation */
 }
 
 .navbar a:hover {
-    background-color: #ffe082; /* Lighter yellow hover effect */
-    border-radius: 5px;
+    color: #ffd700; /* Brighter gold on hover */
+    transform: scale(1.1); /* Scale effect */
 }
 
+/* Sections */
 section {
-    margin: 30px auto;
+    margin: 40px auto;
     padding: 30px;
     max-width: 800px;
-    background-color: #fff8e1; /* Soft yellow for sections */
+    background-color: #3a3a3a; /* Dark section background */
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: slide-in 1s ease-in-out; /* Slide-in animation */
 }
 
+/* Section Headings */
 h2 {
-    color: #ff6f00; /* Orange for headings */
+    color: #ffd700; /* Brighter gold for headings */
     text-align: center;
     margin-bottom: 20px;
 }
 
+/* Footer */
 footer {
-    background-color: #ffcc00;
-    color: #333;
+    background-color: #1e1e1e; /* Dark footer background */
+    color: #f5c16c;
     text-align: center;
     padding: 15px;
     font-size: 0.9em;
-    border-top: 2px solid #333;
+    border-top: 2px solid #444;
+}
+
+/* Animations */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    animation: fade-in 1.5s ease-in-out;
 }
