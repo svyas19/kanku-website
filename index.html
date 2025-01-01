@@ -18,49 +18,95 @@
         </div>
     </header>
 
-    <!-- Rest of your header and navigation -->
+    <nav>
+        <ul class="navbar">
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#events" class="nav-link">Events</a></li>
+            <li><a href="#awards" class="nav-link">Awards</a></li>
+            <li><a href="#media" class="nav-link">Media Recognition</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
 
-    <section id="awards" class="animated-section">
-        <h2>Awards & Recognition</h2>
-        <div class="section-content">
-            <p>Over the years, Kanku Kala Kendra has achieved numerous accolades and awards:</p>
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="photos/awards/award1.jpg" alt="Award Achievement 1" loading="lazy">
-                    </div>
-                    <!-- Add more award slides if you have them -->
-                </div>
-                <div class="swiper-pagination"></div>
+    <main>
+        <section id="about" class="animated-section">
+            <h2>About Us</h2>
+            <div class="section-content">
+                <p>Kanku Kala Kendra is a prestigious Kathak dance academy in Vadodara, led by the esteemed Guru Smt. Pashmina Vyas. With a passion for preserving the elegance of Kathak, she inspires and nurtures students to master this classical art form. The academy offers a harmonious blend of tradition and innovation, creating a space where talent flourishes.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="media" class="animated-section">
-        <h2>Media Coverage</h2>
-        <div class="section-content">
-            <p>Kanku Kala Kendra and its talented students have been featured in various media outlets:</p>
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <img src="photos/media/media1.jpg" alt="Media Feature 1" loading="lazy">
-                    </div>
-                    <div class="swiper-slide">
-                        <img src="photos/media/media2.jpg" alt="Media Feature 2" loading="lazy">
-                    </div>
-                    <!-- Add more media slides if you have them -->
-                </div>
-                <div class="swiper-pagination"></div>
+        <section id="events" class="animated-section">
+            <h2>Events</h2>
+            <div class="highlighted-event">
+                <h3>Upcoming Performance</h3>
+                <p>Mark your calendars! On <span class="highlight">12th January</span>, over <span class="highlight">40 talented students</span> will perform live in a grand event celebrating the beauty of Kathak. Don't miss this enchanting evening of talent and tradition.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Rest of your sections -->
+        <section id="awards" class="animated-section">
+            <h2>Awards & Recognition</h2>
+            <div class="section-content">
+                <p>Over the years, Kanku Kala Kendra has achieved numerous accolades and awards:</p>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="photos/awards/award1.jpg" alt="Award Achievement 1" loading="lazy">
+                        </div>
+                        <!-- Add more award slides if you have them -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="media" class="animated-section">
+            <h2>Media Coverage</h2>
+            <div class="section-content">
+                <p>Kanku Kala Kendra and its talented students have been featured in various media outlets:</p>
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="photos/media/media1.jpg" alt="Media Feature 1" loading="lazy">
+                        </div>
+                        <div class="swiper-slide">
+                            <img src="photos/media/media2.jpg" alt="Media Feature 2" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="animated-section">
+            <h2>Contact Us</h2>
+            <div class="contact-card">
+                <div class="section-content">
+                    <p>Guru Smt. Pashmina Vyas conducts classes across various branches in Vadodara:</p>
+                    <ul class="contact-details">
+                        <li><span class="highlight">Manjalpur:</span> Near Tulsidham, Vadodara</li>
+                        <li><span class="highlight">Gotri:</span> Behind ABC Complex, Vadodara</li>
+                        <li><span class="highlight">Maharani Chimnabai:</span> Visiting Faculty</li>
+                    </ul>
+                    <p>Reach out for inquiries or to join the academy:</p>
+                    <ul class="contact-info">
+                        <li><span class="highlight">Phone:</span> +91 123456789</li>
+                        <li><span class="highlight">Email:</span> info@kankukalakendra.com</li>
+                        <li><span class="highlight">Address:</span> Multiple locations across Vadodara, Gujarat, India</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Kanku Kala Kendra. All Rights Reserved.</p>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script>
-        // Add this JavaScript to handle image loading
         document.addEventListener('DOMContentLoaded', function() {
+            // Image loading handling
             const images = document.querySelectorAll('img');
             images.forEach(img => {
                 img.addEventListener('load', function() {
@@ -68,8 +114,6 @@
                 });
                 img.addEventListener('error', function() {
                     console.error('Error loading image:', this.src);
-                    // Optionally replace with a placeholder
-                    // this.src = 'path/to/placeholder.jpg';
                 });
             });
 
