@@ -5,6 +5,7 @@ body {
     padding: 0;
     background-color: #121212;
     color: #ffffff;
+    overflow-x: hidden;
 }
 
 /* Header */
@@ -12,11 +13,58 @@ header {
     text-align: center;
     padding: 60px 20px;
     background: linear-gradient(135deg, #e63946, #2b2b2b);
+    color: #ffffff;
 }
 
 .logo {
     width: 150px;
     margin-bottom: 20px;
+    animation: glow 2s infinite alternate;
+}
+
+.main-title {
+    font-size: 2.8em;
+    font-weight: 600;
+    margin: 10px 0;
+}
+
+.subtitle {
+    font-size: 1.2em;
+    font-weight: 300;
+    font-style: italic;
+}
+
+/* Navbar */
+nav {
+    background-color: #1e1e1e;
+    padding: 15px 0;
+    border-bottom: 2px solid #e63946;
+}
+
+.navbar {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+}
+
+.navbar li {
+    margin: 0 15px;
+}
+
+.navbar a {
+    color: #e63946;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar a:hover {
+    color: #ffffff;
+    transform: scale(1.1);
 }
 
 /* Sections */
@@ -31,11 +79,24 @@ section {
     text-align: center;
 }
 
+/* Highlighted Text */
 .highlight {
     color: #ffd700;
+    font-weight: 600;
 }
 
-/* Swiper Styles */
+/* Highlighted Event Section */
+.highlighted-event {
+    background-color: #2b2b2b;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 2px solid #e63946;
+    color: #ffd700;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Swiper Carousel */
 .swiper-container {
     width: 100%;
     padding: 20px 0;
@@ -47,6 +108,37 @@ section {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
+.swiper-pagination {
+    bottom: 10px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #ffd700;
+}
+
+/* Contact Card */
+.contact-card {
+    background-color: #2b2b2b;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.contact-details,
+.contact-info {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+    font-size: 1em;
+}
+
+.contact-details li,
+.contact-info li {
+    margin: 5px 0;
+    color: #ffd700;
+}
+
 /* Footer */
 footer {
     background-color: #1a1a1a;
@@ -54,4 +146,52 @@ footer {
     padding: 20px;
     font-size: 0.9em;
     color: #e63946;
+    border-top: 2px solid #e63946;
+}
+
+/* Animations */
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px #e63946;
+    }
+    to {
+        box-shadow: 0 0 20px #ffd700;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2.2em;
+    }
+
+    .subtitle {
+        font-size: 1em;
+    }
+
+    .navbar a {
+        font-size: 1em;
+    }
+
+    .logo {
+        width: 120px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 1.8em;
+    }
+
+    .subtitle {
+        font-size: 0.9em;
+    }
+
+    .navbar a {
+        font-size: 0.9em;
+    }
+
+    .logo {
+        width: 100px;
+    }
 }
