@@ -82,6 +82,18 @@ section {
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     animation: slide-up 1s ease-in-out;
+    text-align: center; /* Center align text */
+}
+
+/* Highlighted Text */
+.section-content {
+    font-size: 1.1em;
+    line-height: 1.8;
+}
+
+.section-content .highlight {
+    color: #ffd700; /* Gold highlight */
+    font-weight: 600;
 }
 
 /* Section Headings */
@@ -90,7 +102,7 @@ h2 {
     text-align: center;
     margin-bottom: 20px;
     font-weight: 600;
-    font-size: 1.8em;
+    font-size: 2em;
     letter-spacing: 0.5px;
 }
 
