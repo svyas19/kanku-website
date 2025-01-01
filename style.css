@@ -96,14 +96,37 @@ section {
     font-weight: 600;
 }
 
-/* Section Headings */
-h2 {
-    color: #e63946;
-    text-align: center;
-    margin-bottom: 20px;
-    font-weight: 600;
-    font-size: 2em;
-    letter-spacing: 0.5px;
+/* Highlighted Event */
+.highlighted-event {
+    background-color: #2b2b2b;
+    border: 2px solid #e63946;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    color: #ffd700;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Contact Card */
+.contact-card {
+    background-color: #2b2b2b;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.contact-details,
+.contact-info {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+    font-size: 1em;
+}
+
+.contact-details li,
+.contact-info li {
+    margin: 5px 0;
+    color: #ffd700;
 }
 
 /* Footer */
