@@ -2,19 +2,18 @@
 body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background-color: #121212;
-    color: #ffffff;
+    background-color: #111;
+    color: #fff;
 }
 
 header {
+    background: linear-gradient(90deg, #a00, #800);
     text-align: center;
-    background: linear-gradient(135deg, #ff4b2b, #ff416c);
-    padding: 20px 0;
+    padding: 20px;
 }
 
-.logo {
-    width: 120px;
-    height: auto;
+.header-container .logo {
+    max-width: 150px;
     margin-bottom: 10px;
 }
 
@@ -27,22 +26,19 @@ header {
 .subtitle {
     font-size: 1.2em;
     font-weight: 300;
+    color: #ddd;
 }
 
 /* Navigation Bar */
 nav {
-    background-color: #1e1e1e;
+    background-color: #222;
     padding: 10px 0;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .navbar {
+    list-style: none;
     display: flex;
     justify-content: center;
-    list-style: none;
     margin: 0;
     padding: 0;
 }
@@ -52,62 +48,52 @@ nav {
 }
 
 .navbar a {
-    color: #ffffff;
     text-decoration: none;
-    font-size: 1.1em;
-    transition: color 0.3s ease;
+    color: #fff;
+    font-weight: 400;
+    transition: color 0.3s;
 }
 
 .navbar a:hover {
-    color: #ff416c;
+    color: #ffa500;
 }
 
-/* Section Styles */
-section {
-    padding: 50px 20px;
-    text-align: center;
-}
-
+/* Section Styling */
 .animated-section {
-    animation: fadeIn 1s ease;
+    text-align: center;
+    margin: 40px 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #222;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-h2 {
+.animated-section h2 {
     font-size: 2em;
-    margin-bottom: 20px;
-    color: #ff416c;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #ffa500;
 }
 
 .section-content {
-    max-width: 800px;
-    margin: 0 auto;
     font-size: 1.2em;
     line-height: 1.6;
+    margin-top: 10px;
+    color: #eee;
 }
 
-/* Highlighted Text */
 .highlight {
-    color: #ff4b2b;
+    color: #ffa500;
     font-weight: 600;
 }
 
-/* Awards and Media Slideshow */
+/* Swiper Styles */
 .swiper-container {
-    width: 90%;
-    max-width: 800px;
-    margin: 20px auto;
-    border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
     overflow: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .swiper-slide img {
@@ -115,69 +101,50 @@ h2 {
     display: block;
 }
 
-.swiper-pagination {
-    bottom: 10px !important;
+/* Footer */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #222;
+    color: #aaa;
+    font-size: 0.9em;
 }
 
 /* Contact Section */
 .contact-card {
-    background-color: #1e1e1e;
-    border-radius: 10px;
+    text-align: left;
+    background-color: #222;
     padding: 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-.contact-details,
-.contact-info {
+.contact-details, .contact-info {
     list-style: none;
     padding: 0;
+}
+
+.contact-details li, .contact-info li {
     margin: 10px 0;
-    text-align: left;
+    font-size: 1em;
+    color: #ddd;
 }
 
-.contact-details li,
-.contact-info li {
-    margin: 10px 0;
-    font-size: 1.1em;
+.contact-details .highlight, .contact-info .highlight {
+    color: #ffa500;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    background-color: #1e1e1e;
-    padding: 20px 0;
-    margin-top: 20px;
-    color: #ffffff;
-    font-size: 0.9em;
-    border-top: 1px solid #ff416c;
-}
-
-/* Responsive Design */
+/* Media Queries for Responsiveness */
 @media (max-width: 768px) {
-    .main-title {
-        font-size: 2em;
-    }
-
-    .subtitle {
-        font-size: 1em;
-    }
-
     .navbar {
         flex-direction: column;
-        align-items: center;
     }
 
     .navbar li {
         margin: 10px 0;
     }
 
-    .section-content {
-        font-size: 1em;
-    }
-
-    .contact-card {
-        padding: 15px;
+    .animated-section {
+        margin: 20px 10px;
     }
 }
