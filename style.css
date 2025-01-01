@@ -5,7 +5,6 @@ body {
     padding: 0;
     background-color: #121212;
     color: #ffffff;
-    overflow-x: hidden;
 }
 
 /* Header */
@@ -27,7 +26,6 @@ header {
     justify-content: center;
     background-color: #333;
     padding: 10px 0;
-    margin: 0;
 }
 
 .navbar li {
@@ -52,7 +50,6 @@ header {
 }
 
 .section-content {
-    text-align: center;
     margin-bottom: 20px;
     color: #ffffff;
     font-size: 1.2rem;
@@ -63,36 +60,30 @@ header {
     color: #ffc107;
 }
 
-/* Swiper Containers */
-.swiper-container {
-    width: 100%;
-    max-width: 800px;
-    margin: 20px auto;
-}
-
-.swiper-slide {
+/* Image Grid */
+.image-grid {
     display: flex;
     justify-content: center;
-    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-.swiper-slide img {
+.image-tile {
+    width: 300px;
+    text-align: center;
+}
+
+.image-tile img {
     width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Pagination */
-.swiper-pagination {
-    bottom: 10px;
-    text-align: center;
-}
-
-.awards-title, .media-title {
-    text-align: center;
+.caption {
+    margin-top: 10px;
+    font-size: 1rem;
     color: #ffc107;
-    margin-bottom: 10px;
 }
 
 /* Footer */

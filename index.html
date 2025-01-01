@@ -7,7 +7,6 @@
     <title>Kanku Kala Kendra - Kathak Dance Academy</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
 </head>
 <body>
     <header>
@@ -42,26 +41,29 @@
     </section>
 
     <section id="awards" class="animated-section">
-        <h2 class="awards-title">Awards</h2>
+        <h2>Awards</h2>
         <p class="section-content">Over the years, Kanku Kala Kendra has achieved numerous accolades and awards:</p>
-        <div class="swiper-container awards-swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="photos/awards/award1.jpg" alt="Award 1"></div>
-                <div class="swiper-slide"><img src="photos/awards/award2.jpg" alt="Award 2"></div>
+        <div class="image-grid">
+            <div class="image-tile">
+                <img src="photos/awards/award1.jpg" alt="Award 1">
+                <p class="caption">Award Title 1</p>
             </div>
-            <div class="swiper-pagination"></div>
+            
         </div>
     </section>
 
     <section id="media" class="animated-section">
-        <h2 class="media-title">Media Recognition</h2>
+        <h2>Media Recognition</h2>
         <p class="section-content">Kanku Kala Kendra and its talented students have been featured in various media outlets:</p>
-        <div class="swiper-container media-swiper">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="photos/media/media1.jpg" alt="Media Coverage 1"></div>
-                <div class="swiper-slide"><img src="photos/media/media2.jpg" alt="Media Coverage 2"></div>
+        <div class="image-grid">
+            <div class="image-tile">
+                <img src="photos/media/media1.jpg" alt="Media Coverage 1">
+                <p class="caption">Media Title 1</p>
             </div>
-            <div class="swiper-pagination"></div>
+            <div class="image-tile">
+                <img src="photos/media/media2.jpg" alt="Media Coverage 2">
+                <p class="caption">Media Title 2</p>
+            </div>
         </div>
     </section>
 
@@ -86,16 +88,5 @@
     <footer>
         <p>&copy; 2025 Kanku Kala Kendra. All Rights Reserved.</p>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
-    <script>
-        const swiper = new Swiper('.swiper-container', {
-            loop: true,
-            pagination: { el: '.swiper-pagination', clickable: true },
-            autoplay: { delay: 3000 },
-            slidesPerView: 1,
-            spaceBetween: 30,
-        });
-    </script>
 </body>
 </html>
