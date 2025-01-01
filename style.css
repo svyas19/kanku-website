@@ -1,9 +1,9 @@
 /* General Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #000000; /* Black background */
+    background-color: #121212; /* Deep black background */
     color: #ffffff; /* White text for contrast */
     overflow-x: hidden;
 }
@@ -11,30 +11,35 @@ body {
 /* Header */
 header {
     text-align: center;
-    padding: 40px 0;
-    background-color: #e63946; /* Red from logo */
-    color: #ffffff; /* White text */
+    padding: 60px 0;
+    background: linear-gradient(135deg, #e63946, #2b2b2b); /* Gradient background */
+    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .logo {
-    width: 150px; /* Logo size */
+    width: 180px; /* Larger logo size */
     margin-bottom: 20px;
+    animation: glow 2s infinite alternate; /* Glowing logo effect */
 }
 
 .main-title {
-    font-size: 2.5em;
+    font-size: 2.8em;
     margin: 10px 0;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 .subtitle {
-    font-size: 1.2em;
+    font-size: 1.3em;
     margin: 5px 0;
+    font-weight: 300;
     font-style: italic;
 }
 
 /* Navigation */
 nav {
-    background-color: #1a1a1a; /* Dark navigation bar */
+    background-color: #1e1e1e;
     padding: 15px 0;
     border-bottom: 2px solid #e63946;
 }
@@ -52,17 +57,17 @@ nav {
 }
 
 .navbar a {
-    color: #e63946; /* Red links */
+    color: #e63946;
     text-decoration: none;
     font-size: 1.1em;
-    font-weight: bold;
+    font-weight: 600;
     padding: 5px 10px;
-    transition: transform 0.3s ease, color 0.3s ease; /* Hover animation */
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .navbar a:hover {
-    color: #ffffff; /* White on hover */
-    transform: scale(1.1); /* Scale effect */
+    color: #ffffff;
+    transform: scale(1.1);
 }
 
 /* Sections */
@@ -70,39 +75,46 @@ section {
     margin: 40px auto;
     padding: 30px;
     max-width: 800px;
-    background-color: #1a1a1a; /* Dark section background */
+    background-color: #1e1e1e;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    animation: slide-up 1s ease-in-out;
 }
 
 /* Section Headings */
 h2 {
-    color: #e63946; /* Red for headings */
+    color: #e63946;
     text-align: center;
     margin-bottom: 20px;
 }
 
 /* Footer */
 footer {
-    background-color: #1a1a1a; /* Dark footer background */
+    background-color: #1a1a1a;
     color: #e63946;
     text-align: center;
-    padding: 15px;
+    padding: 20px;
     font-size: 0.9em;
     border-top: 2px solid #e63946;
 }
 
 /* Animations */
-@keyframes fade-in {
+@keyframes glow {
     from {
-        opacity: 0;
+        box-shadow: 0 0 10px #e63946;
     }
     to {
-        opacity: 1;
+        box-shadow: 0 0 20px #ffffff;
     }
 }
 
-.fade-in {
-    animation: fade-in 1.5s ease-in-out;
+@keyframes slide-up {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
