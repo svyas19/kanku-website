@@ -86,6 +86,9 @@ h2 {
     color: #e63946;
     text-align: center;
     margin-bottom: 20px;
+    font-weight: 600;
+    font-size: 2em;
+    letter-spacing: 0.5px;
 }
 
 /* Footer */
@@ -117,4 +120,8 @@ footer {
         transform: translateY(0);
         opacity: 1;
     }
+}
+
+.animated-section {
+    animation: slide-up 1.2s ease-in-out;
 }
