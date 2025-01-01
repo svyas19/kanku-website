@@ -60,30 +60,18 @@ header {
     color: #ffc107;
 }
 
-/* Image Grid */
-.image-grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+/* Swiper Slider */
+.swiper-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
 }
 
-.image-tile {
-    width: 300px;
-    text-align: center;
-}
-
-.image-tile img {
+.swiper-slide img {
     width: 100%;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-}
-
-.caption {
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #ffc107;
 }
 
 /* Footer */
