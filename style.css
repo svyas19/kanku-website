@@ -39,7 +39,7 @@ img.loaded {
 
 /* Header Styling */
 header {
-    background: linear-gradient(135deg, rgba(229, 45, 39, 0.95) 0%, rgba(179, 18, 23, 0.95) 100%);
+    background: linear-gradient(135deg, #e52d27 0%, #b31217 100%);
     padding: var(--spacing-unit) 0;
     position: relative;
     overflow: hidden;
@@ -49,16 +49,17 @@ header {
     justify-content: center;
 }
 
-header::before {
+header::after {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
     background: url('photos/logo/Final_Logo.jpg') center/contain no-repeat;
-    opacity: 0.1;
-    filter: grayscale(100%);
+    opacity: 0.15;
+    mix-blend-mode: soft-light;
     z-index: 0;
 }
 
@@ -211,15 +212,16 @@ h2::after {
     color: var(--primary-color);
 }
 
-/* Awards & Media Sections */
+/* Slider/Awards & Media Sections */
 .swiper-container {
     width: 100%;
     max-width: 800px;
+    height: 450px;
     margin: 2rem auto;
     border-radius: 15px;
     overflow: hidden;
-    aspect-ratio: 16/9;
     position: relative;
+    background: var(--background-dark);
 }
 
 .swiper-slide {
@@ -227,28 +229,33 @@ h2::after {
     align-items: center;
     justify-content: center;
     background: var(--background-dark);
+    height: 100%;
 }
 
 .swiper-slide img {
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
     object-fit: contain;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    max-height: 500px;
 }
 
 .swiper-button-next,
 .swiper-button-prev {
-    color: var(--secondary-color);
-    background: rgba(0, 0, 0, 0.5);
-    width: 40px;
-    height: 40px;
+    color: #fff;
+    background: rgba(229, 45, 39, 0.7);
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background: rgba(229, 45, 39, 0.9);
+    transform: scale(1.1);
 }
 
 .swiper-button-next:after,
@@ -257,11 +264,12 @@ h2::after {
 }
 
 .swiper-pagination-bullet {
-    background: var(--secondary-color);
-    opacity: 0.5;
+    background: #fff;
+    opacity: 0.6;
 }
 
 .swiper-pagination-bullet-active {
+    background: var(--primary-color);
     opacity: 1;
 }
 
@@ -308,7 +316,7 @@ h3 {
     margin-bottom: 1rem;
 }
 
-/* Animation */
+/* Animations */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -320,10 +328,9 @@ h3 {
     }
 }
 
-/* Loading Animation */
-@keyframes loading {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+/* Loading State */
+.loading {
+    position: relative;
 }
 
 .loading::after {
@@ -335,6 +342,11 @@ h3 {
     height: 100%;
     background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
     animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
 }
 
 /* Custom Scrollbar */
@@ -371,29 +383,6 @@ a:focus, button:focus {
     color: var(--text-color);
 }
 
-/* Touch Device Optimizations */
-@media (hover: hover) and (pointer: fine) {
-    .navbar a:hover {
-        background-color: var(--primary-color);
-        transform: translateY(-2px);
-    }
-    
-    .swiper-slide img:hover {
-        transform: scale(1.02);
-        box-shadow: 0 6px 25px rgba(0, 0, 0, 0.4);
-    }
-}
-
-@media (pointer: coarse) {
-    .navbar a {
-        padding: 12px 20px;
-    }
-    
-    .contact-details li, .contact-info li {
-        padding: 8px 0;
-    }
-}
-
 /* Responsive Design */
 @media (max-width: 768px) {
     .main-title {
@@ -417,8 +406,8 @@ a:focus, button:focus {
         font-size: 2rem;
     }
     
-    .swiper-slide img {
-        max-height: 300px;
+    .swiper-container {
+        height: 350px;
     }
 
     .swiper-button-next,
@@ -464,61 +453,25 @@ a:focus, button:focus {
     }
 
     .swiper-container {
-        aspect-ratio: 4/3;
+        height: 250px;
     }
 }
 
-/* Tablet Portrait */
-@media (min-width: 481px) and (max-width: 768px) {
-    .header-container {
-        padding: 1.5rem var(--spacing-unit);
-    }
-    
-    .logo {
-        width: 130px;
-    }
-    
-    .main-title {
-        font-size: 2.5rem;
-    }
-    
-    .navbar {
-        flex-wrap: wrap;
-        gap: 1rem;
-    }
-
-    .swiper-container {
-        max-width: 90%;
+/* Touch Device Optimizations */
+@media (hover: hover) and (pointer: fine) {
+    .navbar a:hover {
+        background-color: var(--primary-color);
+        transform: translateY(-2px);
     }
 }
 
-/* Tablet Landscape */
-@media (min-width: 769px) and (max-width: 1024px) {
-    .header-container {
-        max-width: 90%;
+@media (pointer: coarse) {
+    .navbar a {
+        padding: 12px 20px;
     }
     
-    .main-title {
-        font-size: 2.8rem;
-    }
-    
-    .animated-section {
-        padding: 1.8rem;
-    }
-    
-    .contact-card {
-        max-width: 90%;
-    }
-}
-
-/* Large Tablets and Small Laptops */
-@media (min-width: 1025px) and (max-width: 1366px) {
-    main {
-        max-width: 90%;
-    }
-    
-    .swiper-container {
-        max-width: 90%;
+    .contact-details li, .contact-info li {
+        padding: 8px 0;
     }
 }
 
