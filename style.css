@@ -3,22 +3,21 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #282828; /* Dark gray background */
-    color: #e0e0e0; /* Light gray text */
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text for contrast */
     overflow-x: hidden;
 }
 
 /* Header */
 header {
     text-align: center;
-    padding: 50px 0;
-    background: linear-gradient(to bottom, #1e1e1e, #3a3a3a); /* Subtle dark gradient */
-    color: #f5c16c; /* Soft gold text */
-    animation: fade-in 1.5s ease-in-out; /* Fade-in animation */
+    padding: 40px 0;
+    background-color: #e63946; /* Red from logo */
+    color: #ffffff; /* White text */
 }
 
 .logo {
-    width: 120px;
+    width: 150px; /* Logo size */
     margin-bottom: 20px;
 }
 
@@ -35,9 +34,9 @@ header {
 
 /* Navigation */
 nav {
-    background-color: #3a3a3a; /* Dark gray nav bar */
+    background-color: #1a1a1a; /* Dark navigation bar */
     padding: 15px 0;
-    border-bottom: 2px solid #444;
+    border-bottom: 2px solid #e63946;
 }
 
 .navbar {
@@ -53,7 +52,7 @@ nav {
 }
 
 .navbar a {
-    color: #f5c16c; /* Soft gold links */
+    color: #e63946; /* Red links */
     text-decoration: none;
     font-size: 1.1em;
     font-weight: bold;
@@ -62,7 +61,7 @@ nav {
 }
 
 .navbar a:hover {
-    color: #ffd700; /* Brighter gold on hover */
+    color: #ffffff; /* White on hover */
     transform: scale(1.1); /* Scale effect */
 }
 
@@ -71,27 +70,27 @@ section {
     margin: 40px auto;
     padding: 30px;
     max-width: 800px;
-    background-color: #3a3a3a; /* Dark section background */
+    background-color: #1a1a1a; /* Dark section background */
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    animation: slide-in 1s ease-in-out; /* Slide-in animation */
+    color: #ffffff;
 }
 
 /* Section Headings */
 h2 {
-    color: #ffd700; /* Brighter gold for headings */
+    color: #e63946; /* Red for headings */
     text-align: center;
     margin-bottom: 20px;
 }
 
 /* Footer */
 footer {
-    background-color: #1e1e1e; /* Dark footer background */
-    color: #f5c16c;
+    background-color: #1a1a1a; /* Dark footer background */
+    color: #e63946;
     text-align: center;
     padding: 15px;
     font-size: 0.9em;
-    border-top: 2px solid #444;
+    border-top: 2px solid #e63946;
 }
 
 /* Animations */
@@ -100,17 +99,6 @@ footer {
         opacity: 0;
     }
     to {
-        opacity: 1;
-    }
-}
-
-@keyframes slide-in {
-    from {
-        transform: translateY(20px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
         opacity: 1;
     }
 }
