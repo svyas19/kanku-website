@@ -69,20 +69,23 @@
     justify-content: center;
     align-items: center;
     margin: 0 auto 2.5rem;
-    width: 250px; /* Increased width */
+    width: 350px; /* Increased width significantly */
     height: auto;
-    background: none; /* Removed white background */
-    box-shadow: none; /* Removed shadow */
-    border: none; /* Removed border */
-    border-radius: 0; /* Removed border radius */
-    overflow: visible; /* Changed to visible */
-    padding: 0; /* Removed padding */
+    background: none;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    overflow: visible;
+    padding: 0;
+    position: relative; /* Added position relative */
   }
   
   .logo {
     width: 100%;
     height: auto;
     object-fit: contain;
+    display: block; /* Added display block */
+    margin: 0 auto; /* Center the image */
   }
   
   /* Background watermark adjustment */
@@ -91,12 +94,25 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    background: url("photos/logo/Final_Logo.jpg") center/40% no-repeat;
+    background: url("photos/logo/Final_Logo.jpg") center/35% no-repeat;
     opacity: 0.05;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 0;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .logo-container {
+      width: 300px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .logo-container {
+      width: 250px;
+    }
   }
 
   
