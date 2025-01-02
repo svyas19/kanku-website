@@ -8,15 +8,21 @@
     content="Welcome to Kanku Kala Kendra, a premier Kathak dance academy in Vadodara, India. Learn the art of Kathak under the guidance of Guru Smt. Pashmina Vyas."
   />
   <title>Kanku Kala Kendra - Kathak Dance Academy</title>
+
   <!-- Link to your external CSS -->
   <link rel="stylesheet" href="style.css" />
+  
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
     rel="stylesheet"
   />
+  
   <!-- Swiper CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+  />
 </head>
 <body>
   <!-- HEADER (Hero Section) -->
@@ -32,16 +38,23 @@
     </div>
   </header>
 
-  <!-- NAVIGATION -->
-  <nav>
-    <ul class="navbar">
-      <li><a href="#about" class="nav-link">About</a></li>
-      <li><a href="#events" class="nav-link">Events</a></li>
-      <li><a href="#awards" class="nav-link">Awards</a></li>
-      <li><a href="#media" class="nav-link">Media Recognition</a></li>
-      <li><a href="#contact" class="nav-link">Contact</a></li>
-    </ul>
-  </nav>
+  <!-- NAVIGATION (Hamburger + Menu) -->
+  <div class="nav-wrapper">
+    <button class="hamburger" aria-label="Toggle navigation">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav>
+      <ul class="navbar">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#events" class="nav-link">Events</a></li>
+        <li><a href="#awards" class="nav-link">Awards</a></li>
+        <li><a href="#media" class="nav-link">Media Recognition</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
 
   <!-- MAIN CONTENT -->
   <main>
@@ -85,7 +98,7 @@
             </div>
             <!-- Add more slides for additional awards if needed -->
           </div>
-          <!-- Swiper Pagination and Navigation -->
+          <!-- Swiper Pagination & Navigation -->
           <div class="swiper-pagination"></div>
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
@@ -97,7 +110,10 @@
     <section id="media" class="animated-section">
       <h2>Media Coverage</h2>
       <div class="section-content">
-        <p>Kanku Kala Kendra and its talented students have been featured in various media outlets:</p>
+        <p>
+          Kanku Kala Kendra and its talented students have been featured in
+          various media outlets:
+        </p>
         <!-- Swiper for Media -->
         <div class="swiper-container media-swiper">
           <div class="swiper-wrapper">
@@ -117,7 +133,7 @@
             </div>
             <!-- Add more slides for additional media images if needed -->
           </div>
-          <!-- Swiper Pagination and Navigation -->
+          <!-- Swiper Pagination & Navigation -->
           <div class="swiper-pagination"></div>
           <div class="swiper-button-prev"></div>
           <div class="swiper-button-next"></div>
@@ -132,7 +148,7 @@
         <div class="section-content">
           <p>Guru Smt. Pashmina Vyas conducts classes across various branches in Vadodara:</p>
 
-          <!-- Branches in Card Layout -->
+          <!-- Branches in a Card Layout -->
           <div class="branches">
             <div class="branch-card">
               <h3>Manjalpur</h3>
@@ -153,7 +169,10 @@
           <ul class="contact-info">
             <li><span class="highlight">Phone:</span> +91 123456789</li>
             <li><span class="highlight">Email:</span> info@kankukalakendra.com</li>
-            <li><span class="highlight">Address:</span> Multiple locations across Vadodara, Gujarat, India</li>
+            <li>
+              <span class="highlight">Address:</span> Multiple locations across
+              Vadodara, Gujarat, India
+            </li>
           </ul>
         </div>
       </div>
@@ -167,77 +186,82 @@
 
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
   <!-- Main Script -->
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener("DOMContentLoaded", function () {
       // Fade-in for loaded images
-      const images = document.querySelectorAll('img');
+      const images = document.querySelectorAll("img");
       images.forEach((img) => {
         if (img.complete) {
-          img.classList.add('loaded');
+          img.classList.add("loaded");
         } else {
-          img.addEventListener('load', function() {
-            this.classList.add('loaded');
+          img.addEventListener("load", function () {
+            this.classList.add("loaded");
           });
         }
-        img.addEventListener('error', function() {
-          console.error('Error loading image:', this.src);
-          this.style.display = 'none';
+        img.addEventListener("error", function () {
+          console.error("Error loading image:", this.src);
+          this.style.display = "none";
         });
       });
 
-      // Awards Swiper
-      const awardsSwiper = new Swiper('.awards-swiper', {
+      // Awards Swiper (use "slide" effect to avoid flicker)
+      const awardsSwiper = new Swiper(".awards-swiper", {
         loop: true,
         slidesPerView: 1,
         spaceBetween: 30,
-        effect: 'fade',
-        fadeEffect: {
-          crossFade: true,
-        },
+        speed: 700, // transition speed in ms
         autoplay: {
           delay: 2000, // 2 seconds
           disableOnInteraction: false,
         },
+        effect: "slide", // removed 'fade' to reduce flicker
         pagination: {
-          el: '.swiper-pagination',
+          el: ".swiper-pagination",
           clickable: true,
           dynamicBullets: true,
         },
         navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
         },
         keyboard: {
           enabled: true,
         },
       });
 
-      // Media Swiper
-      const mediaSwiper = new Swiper('.media-swiper', {
+      // Media Swiper (use "slide" effect to avoid flicker)
+      const mediaSwiper = new Swiper(".media-swiper", {
         loop: true,
         slidesPerView: 1,
         spaceBetween: 30,
-        effect: 'fade',
-        fadeEffect: {
-          crossFade: true,
-        },
+        speed: 700, // transition speed in ms
         autoplay: {
           delay: 2000, // 2 seconds
           disableOnInteraction: false,
         },
+        effect: "slide", // removed 'fade' to reduce flicker
         pagination: {
-          el: '.swiper-pagination',
+          el: ".swiper-pagination",
           clickable: true,
           dynamicBullets: true,
         },
         navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
         },
         keyboard: {
           enabled: true,
         },
+      });
+
+      // Hamburger Menu Toggle
+      const hamburger = document.querySelector(".hamburger");
+      const navWrapper = document.querySelector(".nav-wrapper");
+
+      hamburger.addEventListener("click", () => {
+        navWrapper.classList.toggle("open-nav");
       });
     });
   </script>

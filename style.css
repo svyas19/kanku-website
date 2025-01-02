@@ -14,8 +14,8 @@
   
   body {
     margin: 0;
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-      Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+    font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
     background-color: var(--background-dark);
     color: var(--text-color);
     line-height: 1.6;
@@ -40,11 +40,11 @@
     opacity: 1;
   }
   
-  /* ------------------------- */
-  /* HERO (Header) STYLING    */
-  /* ------------------------- */
+  /* -------------------------------- */
+  /* HERO (Header) STYLING            */
+  /* -------------------------------- */
   .hero {
-    /* A subtle red gradient background */
+    /* Subtle red gradient background */
     background: linear-gradient(
       135deg,
       rgba(229, 45, 39, 1) 0%,
@@ -58,12 +58,25 @@
     overflow: hidden;
   }
   
-  /* The hero content is centered */
   .hero-content {
     text-align: center;
     position: relative;
     z-index: 1;
     padding: 2rem var(--spacing-unit);
+  }
+  
+  /* Optional background logo overlay */
+  .hero::after {
+    content: "";
+    position: absolute;
+    width: 90%;
+    height: 90%;
+    background: url("photos/logo/Final_Logo.jpg") center/contain no-repeat;
+    opacity: 0.1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
   }
   
   .logo {
@@ -89,31 +102,45 @@
     margin-top: 0.5rem;
   }
   
-  /* Optional: subtle background logo or overlay */
-  .hero::after {
-    content: '';
-    position: absolute;
-    width: 90%;
-    height: 90%;
-    background: url('photos/logo/Final_Logo.jpg') center/contain no-repeat;
-    opacity: 0.1;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
+  /* -------------------------------- */
+  /* NAVIGATION (Hamburger + Nav)     */
+  /* -------------------------------- */
+  /* Wrapper holds hamburger & nav side by side (or stacked on mobile) */
+  .nav-wrapper {
+    position: relative;
+    background-color: rgba(36, 36, 36, 0.95);
+    backdrop-filter: blur(10px);
   }
   
-  /* ------------------------- */
-  /* NAVIGATION                */
-  /* ------------------------- */
+  /* HAMBURGER ICON */
+  .hamburger {
+    display: none; /* hidden by default, shown on mobile */
+    background: none;
+    border: none;
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    z-index: 1500;
+  }
+  
+  .hamburger span {
+    display: block;
+    width: 70%;
+    height: 3px;
+    margin: 6px auto;
+    background-color: #fff;
+    transition: 0.3s ease;
+    border-radius: 2px;
+  }
+  
+  /* NAV */
   nav {
-    background-color: rgba(36, 36, 36, 0.95);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    /* On desktop, nav is visible by default */
+    width: 100%;
+    transition: max-height 0.4s ease;
   }
   
   .navbar {
@@ -142,9 +169,26 @@
     transform: translateY(-2px);
   }
   
-  /* ------------------------- */
-  /* SECTIONS & GENERAL        */
-  /* ------------------------- */
+  /* If .open-nav is toggled, show or hide the nav on smaller screens */
+  .nav-wrapper.open-nav nav {
+    max-height: 500px; /* enough space for all links */
+    overflow: hidden;
+  }
+  
+  /* By default on mobile, nav is hidden (we’ll override in media query) */
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+    nav {
+      max-height: 0; 
+      overflow: hidden; 
+    }
+  }
+  
+  /* -------------------------------- */
+  /* SECTIONS & GENERAL STYLES        */
+  /* -------------------------------- */
   main {
     max-width: 1200px;
     margin: 0 auto;
@@ -180,7 +224,7 @@
   }
   
   h2::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: -10px;
     left: 50%;
@@ -228,9 +272,9 @@
     color: var(--primary-color);
   }
   
-  /* ------------------------- */
-  /* SWIPER (Awards & Media)   */
-  /* ------------------------- */
+  /* -------------------------------- */
+  /* SWIPER (Awards & Media)          */
+  /* -------------------------------- */
   .swiper-container {
     width: 100%;
     max-width: 800px;
@@ -297,9 +341,9 @@
     opacity: 1;
   }
   
-  /* ------------------------- */
-  /* CONTACT SECTION           */
-  /* ------------------------- */
+  /* -------------------------------- */
+  /* CONTACT SECTION                  */
+  /* -------------------------------- */
   .contact-card {
     background: linear-gradient(
       45deg,
@@ -363,9 +407,9 @@
     font-size: 1.1rem;
   }
   
-  /* ------------------------- */
-  /* FOOTER                    */
-  /* ------------------------- */
+  /* -------------------------------- */
+  /* FOOTER                           */
+  /* -------------------------------- */
   footer {
     background-color: var(--background-light);
     text-align: center;
@@ -397,13 +441,27 @@
     }
   }
   
+  /* For sections */
+  @keyframes loading {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+  
+  .animated-section {
+    animation: fadeIn 0.6s ease-out;
+  }
+  
   /* Loading State */
   .loading {
     position: relative;
   }
   
   .loading::after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -416,15 +474,6 @@
       transparent
     );
     animation: loading 1.5s infinite;
-  }
-  
-  @keyframes loading {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
   }
   
   /* Custom Scrollbar */
@@ -462,9 +511,9 @@
     color: var(--text-color);
   }
   
-  /* ------------------------- */
-  /* RESPONSIVE DESIGN         */
-  /* ------------------------- */
+  /* -------------------------------- */
+  /* RESPONSIVE DESIGN                */
+  /* -------------------------------- */
   @media (max-width: 768px) {
     .hero {
       min-height: 300px;
@@ -478,9 +527,14 @@
       font-size: 1.2rem;
     }
   
-    .navbar {
-      flex-direction: column;
-      gap: 1rem;
+    /* On mobile, hamburger is shown, nav is collapsed by default */
+    .hamburger {
+      display: block;
+    }
+  
+    /* If .open-nav is toggled, expand nav */
+    .nav-wrapper.open-nav nav {
+      max-height: 300px;
     }
   
     .animated-section {
@@ -522,10 +576,6 @@
   
     .subtitle {
       font-size: 1rem;
-    }
-  
-    .header-container {
-      padding: 1rem var(--spacing-unit);
     }
   
     .contact-card {
@@ -577,12 +627,10 @@
       background: white;
       color: black;
     }
-  
     .hero {
       background: none;
       min-height: auto;
     }
-  
     .animated-section {
       break-inside: avoid;
       box-shadow: none;
