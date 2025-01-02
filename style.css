@@ -78,16 +78,24 @@
   }
   
   .logo {
-    width: 220px; /* Set a fixed width */
-    height: auto; /* Maintain aspect ratio */
+    width: 220px; /* Define the logo width */
+    height: 220px; /* Set the height to match width for a circular shape */
     border-radius: 50%; /* Make the logo circular */
-    border: 3px solid var(--text-color); /* Add a border for contrast */
+    border: 3px solid var(--text-color); /* Add a visible border */
     margin-bottom: var(--spacing-unit); /* Add space below the logo */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
-    padding: 10px; /* Add padding to prevent text from being cropped */
-    background-color: white; /* Ensure the logo's background is visible */
-    overflow: hidden; /* Prevent content from overflowing the circle */
+    background-color: white; /* Ensure the background of the logo remains white */
+    display: flex; /* Center the image inside the circle */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden; /* Prevent image overflow */
   }
+  
+  .logo img {
+    width: 100%; /* Scale the image to fit */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
   
 
   
