@@ -78,13 +78,17 @@
   }
   
   .logo {
-    width: 220px; /* Controls logo width */
-    height: auto; /* Maintains aspect ratio */
-    border-radius: 50%; /* Makes the logo circular */
-    border: 3px solid var(--text-color); /* Adds a border */
-    margin-bottom: var(--spacing-unit);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Adds a shadow for depth */
-}
+    width: 220px; /* Set a fixed width */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 50%; /* Make the logo circular */
+    border: 3px solid var(--text-color); /* Add a border for contrast */
+    margin-bottom: var(--spacing-unit); /* Add space below the logo */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+    padding: 10px; /* Add padding to prevent text from being cropped */
+    background-color: white; /* Ensure the logo's background is visible */
+    overflow: hidden; /* Prevent content from overflowing the circle */
+  }
+  
 
   
   .main-title {
