@@ -77,19 +77,26 @@
     z-index: 0;
   }
   
-  .logo {
-    width: 220px; /* Define the logo width */
-    height: 220px; /* Set the height to match width for a circular shape */
-    border-radius: 50%; /* Make the logo circular */
-    border: 3px solid var(--text-color); /* Add a visible border */
-    margin-bottom: var(--spacing-unit); /* Add space below the logo */
+  .logo-container {
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin: 2rem auto; /* Add space around the logo */
+    width: 220px; /* Define the width of the container */
+    height: 220px; /* Define the height of the container */
+    background-color: white; /* Set the background to white */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
-    background-color: white; /* Ensure the background of the logo remains white */
-    display: flex; /* Center the image inside the circle */
-    align-items: center;
-    justify-content: center;
+    border: 3px solid var(--text-color); /* Add a border */
+    border-radius: 10px; /* Square shape with slightly rounded corners */
     overflow: hidden; /* Prevent image overflow */
   }
+  
+  .logo-container img {
+    width: 100%; /* Scale image to fit the container */
+    height: 100%; /* Maintain proportions */
+    object-fit: contain; /* Ensure the image fits properly without cropping */
+  }
+  
   
   .logo img {
     width: 100%; /* Scale the image to fit */
