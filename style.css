@@ -22,10 +22,12 @@ body {
     overflow-x: hidden;
 }
 
+/* Remove tap highlight on mobile */
 * {
     -webkit-tap-highlight-color: transparent;
 }
 
+/* Images fade-in when loaded */
 img {
     max-width: 100%;
     height: auto;
@@ -212,36 +214,41 @@ h2::after {
     color: var(--primary-color);
 }
 
-/* Slider/Awards & Media Sections */
+/* Swiper Sliders (Awards & Media) */
 .swiper-container {
     width: 100%;
     max-width: 800px;
-    height: 450px;
+    height: 450px; /* Adjust as desired for desktop */
     margin: 2rem auto;
     border-radius: 15px;
     overflow: hidden;
     position: relative;
     background: var(--background-dark);
+
+    /* Flex to center content vertically/horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .swiper-slide {
+    /* Ensure slides take full container height */
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--background-dark);
-    height: 100%;
 }
 
 .swiper-slide img {
     max-width: 100%;
     max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
+    object-fit: contain; /* keeps aspect ratio, no cropping */
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: opacity 0.3s ease-in;
 }
 
+/* Swiper Buttons */
 .swiper-button-next,
 .swiper-button-prev {
     color: #fff;
@@ -263,6 +270,7 @@ h2::after {
     font-size: 20px;
 }
 
+/* Swiper Pagination */
 .swiper-pagination-bullet {
     background: #fff;
     opacity: 0.6;
@@ -283,14 +291,16 @@ h2::after {
     margin: 2rem auto;
 }
 
-.contact-details, .contact-info {
+.contact-details,
+.contact-info {
     list-style: none;
     padding: 0;
     margin: 1.5rem 0;
     text-align: center;
 }
 
-.contact-details li, .contact-info li {
+.contact-details li,
+.contact-info li {
     margin: 1rem 0;
     font-size: 1.1rem;
     text-align: center;
@@ -411,7 +421,7 @@ a:focus, button:focus {
     }
     
     .swiper-container {
-        height: 350px;
+        height: 350px; /* smaller on tablets */
     }
 
     .swiper-button-next,
@@ -457,7 +467,7 @@ a:focus, button:focus {
     }
 
     .swiper-container {
-        height: 250px;
+        height: 250px; /* smaller on mobile */
     }
 }
 
@@ -474,12 +484,13 @@ a:focus, button:focus {
         padding: 12px 20px;
     }
     
-    .contact-details li, .contact-info li {
+    .contact-details li,
+    .contact-info li {
         padding: 8px 0;
     }
 }
 
-/* Print styles */
+/* Print Styles */
 @media print {
     body {
         background: white;
