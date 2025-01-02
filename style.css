@@ -98,7 +98,10 @@
   }
   
   
-
+  .logo img {
+    width: 100%; /* Scale the image to fit */
+    height: auto; /* Maintain aspect ratio */
+  }
   
   
 
