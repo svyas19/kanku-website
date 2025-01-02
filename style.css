@@ -82,26 +82,21 @@
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     margin: 2rem auto; /* Add space around the logo */
-    width: 220px; /* Define the width of the container */
-    height: 220px; /* Define the height of the container */
-    background-color: white; /* Set the background to white */
+    width: 220px; /* Define width (adjust as needed) */
+    height: auto; /* Maintain aspect ratio */
+    background-color: white; /* White background for contrast */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
-    border: 3px solid var(--text-color); /* Add a border */
-    border-radius: 10px; /* Square shape with slightly rounded corners */
+    border: 3px solid var(--text-color); /* Border for the logo */
+    border-radius: 10px; /* Slightly rounded corners for a rectangle */
     overflow: hidden; /* Prevent image overflow */
   }
   
   .logo-container img {
-    width: 100%; /* Scale image to fit the container */
-    height: 100%; /* Maintain proportions */
-    object-fit: contain; /* Ensure the image fits properly without cropping */
-  }
-  
-  
-  .logo img {
-    width: 100%; /* Scale the image to fit */
+    width: 100%; /* Scale the image to fit the container */
     height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the logo fits properly without cropping */
   }
+  
   
   
 
