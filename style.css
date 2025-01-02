@@ -45,7 +45,7 @@
   /* ------------------------- */
   .hero {
     background: linear-gradient(
-      135deg,
+      to right,
       rgba(229, 45, 39, 1) 0%,
       rgba(179, 22, 17, 1) 100%
     );
@@ -107,34 +107,29 @@
     position: relative;
     background-color: rgba(36, 36, 36, 0.95);
     backdrop-filter: blur(10px);
-    /* Initially collapsed on mobile, expanded on desktop */
   }
   
   .hamburger {
     position: absolute;
-    top: 10px;
+    top: 15px;
     right: 15px;
     background: none;
     border: none;
     width: 40px;
     height: 40px;
     cursor: pointer;
-    display: none; /* shown on mobile in media query */
-    z-index: 1001; /* above nav */
+    display: block;
+    z-index: 1001;
   }
   
   .hamburger span {
     display: block;
     width: 70%;
     height: 3px;
-    margin: 5px auto;
-    background-color: #fff;
-    transition: 0.3s ease;
+    margin: 6px auto;
+    background-color: var(--text-color);
     border-radius: 2px;
-  }
-  
-  nav {
-    transition: max-height 0.3s ease;
+    transition: all 0.3s ease;
   }
   
   .navbar {
@@ -165,18 +160,26 @@
   
   /* Toggled Class (Open Navigation in Mobile) */
   .nav-wrapper.open-nav nav {
-    max-height: 500px; /* Enough space for all menu links */
+    max-height: 500px;
     overflow: hidden;
   }
   
-  /* By default, hide nav on small screens (we override in media queries) */
   @media (max-width: 768px) {
+    .hamburger {
+      top: 20px;
+      right: 20px;
+      width: 35px;
+      height: 35px;
+    }
+  
+    .hamburger span {
+      height: 2.5px;
+      margin: 5px auto;
+    }
+  
     nav {
       max-height: 0;
       overflow: hidden;
-    }
-    .hamburger {
-      display: block;
     }
   }
   
@@ -203,6 +206,7 @@
     text-align: center;
     animation: fadeIn 0.6s ease-out;
   }
+  
   .animated-section:hover {
     transform: translateY(-5px);
   }
@@ -246,25 +250,7 @@
     text-align: center;
   }
   
-  .section-content p {
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Events Section */
-  .highlighted-event {
-    background: linear-gradient(
-      45deg,
-      rgba(229, 45, 39, 0.1),
-      rgba(255, 165, 0, 0.1)
-    );
-    padding: 2rem;
-    border-radius: 10px;
-    border: 1px solid rgba(255, 165, 0, 0.3);
-    text-align: center;
-    margin: 2rem auto;
-    max-width: 800px;
-  }
-  
+  /* Highlighted Text */
   .highlight {
     color: var(--secondary-color);
     font-weight: 600;
@@ -325,81 +311,9 @@
     transform: scale(1.1);
   }
   
-  .swiper-button-next:after,
-  .swiper-button-prev:after {
-    font-size: 20px;
-  }
-  
-  .swiper-pagination-bullet {
-    background: #fff;
-    opacity: 0.6;
-  }
-  
   .swiper-pagination-bullet-active {
     background: var(--primary-color);
     opacity: 1;
-  }
-  
-  /* ------------------------- */
-  /* Contact Section           */
-  /* ------------------------- */
-  .contact-card {
-    background: linear-gradient(
-      45deg,
-      rgba(229, 45, 39, 0.05),
-      rgba(255, 165, 0, 0.05)
-    );
-    padding: 2rem;
-    border: 2px solid var(--secondary-color);
-    border-radius: 15px;
-    max-width: 700px;
-    margin: 2rem auto;
-  }
-  
-  /* Branches Grid */
-  .branches {
-    display: grid;
-    gap: 1rem;
-    margin: 2rem 0;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    justify-items: center;
-  }
-  
-  .branch-card {
-    background-color: var(--background-dark);
-    color: var(--text-color);
-    border-radius: 10px;
-    padding: 1rem;
-    border: 1px solid var(--primary-color);
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 250px;
-    text-align: center;
-    transition: transform 0.3s ease;
-  }
-  .branch-card:hover {
-    transform: translateY(-5px);
-  }
-  .branch-card h3 {
-    margin-top: 0;
-    color: var(--secondary-color);
-    margin-bottom: 0.5rem;
-  }
-  .branch-card p {
-    margin: 0;
-    font-size: 1rem;
-  }
-  
-  /* Contact Info */
-  .contact-info {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0;
-    text-align: center;
-  }
-  .contact-info li {
-    margin: 1rem 0;
-    font-size: 1.1rem;
   }
   
   /* ------------------------- */
@@ -412,183 +326,8 @@
     margin-top: 4rem;
   }
   
-  h3 {
-    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  /* Loading State (if used anywhere) */
-  .loading {
-    position: relative;
-  }
-  .loading::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(255, 255, 255, 0.1),
-      transparent
-    );
-    animation: loading 1.5s infinite;
-  }
-  @keyframes loading {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
-  }
-  
-  /* Custom Scrollbar */
-  ::-webkit-scrollbar {
-    width: 10px;
-  }
-  ::-webkit-scrollbar-track {
-    background: var(--background-dark);
-  }
-  ::-webkit-scrollbar-thumb {
-    background: var(--primary-color);
-    border-radius: 5px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: var(--secondary-color);
-  }
-  
-  /* Accessibility */
-  a:focus,
-  button:focus {
-    outline: 2px solid var(--secondary-color);
-    outline-offset: 2px;
-  }
-  :focus-visible {
-    outline: 2px solid var(--secondary-color);
-    outline-offset: 2px;
-  }
   ::selection {
     background-color: var(--primary-color);
     color: var(--text-color);
-  }
-  
-  /* ------------------------- */
-  /* RESPONSIVE DESIGN         */
-  /* ------------------------- */
-  @media (max-width: 768px) {
-    .hero {
-      min-height: 300px;
-    }
-    .main-title {
-      font-size: 2.2rem;
-    }
-    .subtitle {
-      font-size: 1.2rem;
-    }
-  
-    /* Hamburger visible */
-    .hamburger {
-      display: block;
-    }
-  
-    /* If open-nav toggled, show nav */
-    .nav-wrapper.open-nav nav {
-      max-height: 300px;
-    }
-  
-    .animated-section {
-      padding: 1.5rem;
-    }
-    h2 {
-      font-size: 2rem;
-    }
-    .logo {
-      width: 150px;
-    }
-    .swiper-container {
-      height: 350px;
-    }
-    .swiper-button-next,
-    .swiper-button-prev {
-      width: 30px;
-      height: 30px;
-    }
-    .swiper-button-next:after,
-    .swiper-button-prev:after {
-      font-size: 16px;
-    }
-  }
-  
-  @media (max-width: 480px) {
-    .hero {
-      min-height: 250px;
-    }
-    .main-title {
-      font-size: 1.8rem;
-    }
-    .subtitle {
-      font-size: 1rem;
-    }
-    .contact-card {
-      padding: 1rem;
-    }
-    .animated-section {
-      padding: 1rem;
-      margin: 1rem auto;
-    }
-    .highlighted-event {
-      padding: 1rem;
-    }
-    .logo {
-      width: 120px;
-    }
-    .section-content {
-      font-size: 1rem;
-    }
-    .swiper-container {
-      height: 250px;
-    }
-  }
-  
-  /* Touch Device Optimizations */
-  @media (hover: hover) and (pointer: fine) {
-    .navbar a:hover {
-      background-color: var(--primary-color);
-      transform: translateY(-2px);
-    }
-  }
-  
-  @media (pointer: coarse) {
-    .navbar a {
-      padding: 12px 20px;
-    }
-    .contact-info li {
-      padding: 8px 0;
-    }
-  }
-  
-  /* Print Styles */
-  @media print {
-    body {
-      background: white;
-      color: black;
-    }
-    .hero {
-      background: none;
-      min-height: auto;
-    }
-    .animated-section {
-      box-shadow: none;
-      break-inside: avoid;
-    }
   }
   
