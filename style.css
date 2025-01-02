@@ -1291,51 +1291,115 @@
     }
   }
 
-  .awards-content {
-    .awards-content {
-        background: linear-gradient(45deg, rgba(229, 45, 39, 0.05), rgba(255, 165, 0, 0.05));
-        padding: 2rem;
-        border-radius: 15px;
-        margin: 2rem auto;
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-        text-align: center; /* Center-align text */
-        max-width: 800px;
-      }
-      
-      .awards-content h3 {
-        font-size: 2rem; /* Slightly larger font for emphasis */
-        color: var(--secondary-color);
-        margin-bottom: 1rem;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        text-align: center; /* Center-align the heading */
-      }
-      
-      .awards-content ul {
-        list-style: none;
-        padding: 0;
-        margin: 1.5rem 0;
-        text-align: center; /* Center-align the list items */
-      }
-      
-      .awards-content ul li {
-        font-size: 1.2rem;
-        color: var(--text-color);
-        margin-bottom: 1rem;
-        position: relative;
-        padding-left: 0; /* Remove padding as text is centered */
-      }
-      
-      .awards-content ul li::before {
-        content: "🏆"; /* Icon before each item */
-        margin-right: 8px;
-        color: var(--primary-color);
-      }
-      
-      .awards-content p {
-        font-size: 1.1rem;
-        color: rgba(255, 255, 255, 0.8);
-        line-height: 1.8;
-        margin-top: 1.5rem;
-      }
-    }
-      
+ /* Awards Section Styling */
+.awards-content {
+    background: linear-gradient(45deg, rgba(229, 45, 39, 0.05), rgba(255, 165, 0, 0.05));
+    padding: 2rem;
+    border-radius: 15px;
+    margin: 2rem auto;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    text-align: center; /* Center-align all text */
+    max-width: 800px;
+  }
+  
+  .awards-content h3 {
+    font-size: 2rem; /* Larger font for the heading */
+    color: var(--secondary-color); /* Secondary color for the heading */
+    margin-bottom: 1rem; /* Space below the heading */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+    text-align: center; /* Center-align the heading */
+  }
+  
+  .awards-content ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0; /* Remove padding */
+    margin: 1.5rem 0; /* Add spacing around the list */
+    text-align: center; /* Center-align the list items */
+  }
+  
+  .awards-content ul li {
+    font-size: 1.2rem; /* Font size for the list items */
+    color: var(--text-color); /* Text color matching the theme */
+    margin-bottom: 1rem; /* Spacing between list items */
+    position: relative; /* Positioning for the icon */
+    display: flex; /* Use Flexbox for alignment */
+    align-items: center; /* Vertically center items */
+    justify-content: center; /* Horizontally center items */
+    gap: 8px; /* Space between the icon and text */
+  }
+  
+  .awards-content ul li::before {
+    content: "🏆"; /* Trophy icon before each item */
+    font-size: 1.4rem; /* Icon size */
+    color: var(--primary-color); /* Primary color for the icon */
+  }
+  
+  .awards-content p {
+    font-size: 1.1rem; /* Font size for the paragraph */
+    color: rgba(255, 255, 255, 0.8); /* Subtle contrast for the text */
+    line-height: 1.8; /* Improve readability */
+    margin-top: 1.5rem; /* Space above the paragraph */
+  }
+  
+  /* Swiper for Awards */
+  .swiper-container {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    margin: 2rem auto;
+    border-radius: 15px; /* Rounded corners */
+    overflow: hidden; /* Ensure content stays within bounds */
+    position: relative;
+    background: var(--background-dark); /* Background matching theme */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .swiper-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--background-dark);
+  }
+  
+  .swiper-slide img {
+    max-width: 100%; /* Ensure image scales properly */
+    max-height: 100%;
+    object-fit: contain; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners for images */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Subtle shadow for images */
+    transition: opacity 0.3s ease-in;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: #fff;
+    background: rgba(229, 45, 39, 0.7);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+  }
+  
+  .swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    background: rgba(229, 45, 39, 0.9);
+    transform: scale(1.1);
+  }
+  
+  .swiper-button-next:after,
+  .swiper-button-prev:after {
+    font-size: 20px;
+  }
+  
+  .swiper-pagination-bullet {
+    background: #fff;
+    opacity: 0.6;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background: var(--primary-color);
+    opacity: 1;
+  }
+  
