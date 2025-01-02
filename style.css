@@ -1015,40 +1015,42 @@
   
   /* Branches Grid */
   .branches {
-    display: grid;
-    gap: 1rem;
-    margin: 2rem 0;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    justify-items: center;
+    display: flex; /* Use flexbox for better alignment */
+    gap: 2rem; /* Increase spacing between branch cards */
+    justify-content: center; /* Center align the branch cards */
+    margin-top: 2rem; /* Add margin above the branches */
   }
   
   .branch-card {
     background-color: var(--background-dark);
     color: var(--text-color);
     border-radius: 10px;
-    padding: 1rem;
-    border: 1px solid var(--primary-color);
+    padding: 1.5rem; /* Increase padding for better readability */
+    border: 2px solid var(--primary-color);
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
-    width: 100%;
-    max-width: 250px;
+    max-width: 220px; /* Limit the width of branch cards */
     text-align: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
   
   .branch-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px); /* Lift the card on hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Add depth on hover */
   }
   
   .branch-card h3 {
     margin-top: 0;
     color: var(--secondary-color);
     margin-bottom: 0.5rem;
+    font-size: 1.4rem; /* Adjust font size for better visual hierarchy */
   }
   
   .branch-card p {
     margin: 0;
     font-size: 1rem;
+    color: rgba(255, 255, 255, 0.8); /* Add subtle contrast to the text */
   }
+  
   
   /* Contact Info */
   .contact-info {
