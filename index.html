@@ -9,15 +9,15 @@
   />
   <title>Kanku Kala Kendra - Kathak Dance Academy</title>
 
-  <!-- Link to your external CSS -->
+  <!-- Main CSS -->
   <link rel="stylesheet" href="style.css" />
-  
+
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
     rel="stylesheet"
   />
-  
+
   <!-- Swiper CSS -->
   <link
     rel="stylesheet"
@@ -25,7 +25,7 @@
   />
 </head>
 <body>
-  <!-- HEADER (Hero Section) -->
+  <!-- HERO (Header) -->
   <header class="hero">
     <div class="hero-content">
       <img
@@ -38,13 +38,16 @@
     </div>
   </header>
 
-  <!-- NAVIGATION (Hamburger + Menu) -->
+  <!-- NAV WRAPPER (Hamburger + Nav) -->
   <div class="nav-wrapper">
-    <button class="hamburger" aria-label="Toggle navigation">
+    <!-- Hamburger Icon -->
+    <button class="hamburger" aria-label="Toggle Menu">
       <span></span>
       <span></span>
       <span></span>
     </button>
+
+    <!-- Navigation -->
     <nav>
       <ul class="navbar">
         <li><a href="#about" class="nav-link">About</a></li>
@@ -96,7 +99,7 @@
                 loading="lazy"
               />
             </div>
-            <!-- Add more slides for additional awards if needed -->
+            <!-- Add more swiper-slide divs for additional awards if needed -->
           </div>
           <!-- Swiper Pagination & Navigation -->
           <div class="swiper-pagination"></div>
@@ -110,10 +113,7 @@
     <section id="media" class="animated-section">
       <h2>Media Coverage</h2>
       <div class="section-content">
-        <p>
-          Kanku Kala Kendra and its talented students have been featured in
-          various media outlets:
-        </p>
+        <p>Kanku Kala Kendra and its talented students have been featured in various media outlets:</p>
         <!-- Swiper for Media -->
         <div class="swiper-container media-swiper">
           <div class="swiper-wrapper">
@@ -131,7 +131,7 @@
                 loading="lazy"
               />
             </div>
-            <!-- Add more slides for additional media images if needed -->
+            <!-- Add more swiper-slide divs for additional media images -->
           </div>
           <!-- Swiper Pagination & Navigation -->
           <div class="swiper-pagination"></div>
@@ -187,9 +187,9 @@
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
-  <!-- Main Script -->
+  <!-- Main JS -->
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", () => {
       // Fade-in for loaded images
       const images = document.querySelectorAll("img");
       images.forEach((img) => {
@@ -206,17 +206,16 @@
         });
       });
 
-      // Awards Swiper (use "slide" effect to avoid flicker)
+      // AWARDS Swiper (no loop, default "slide" effect)
       const awardsSwiper = new Swiper(".awards-swiper", {
-        loop: true,
         slidesPerView: 1,
-        spaceBetween: 30,
-        speed: 700, // transition speed in ms
+        spaceBetween: 0,
+        effect: "slide",
+        speed: 600,
         autoplay: {
-          delay: 2000, // 2 seconds
+          delay: 3500, // 3.5 seconds
           disableOnInteraction: false,
         },
-        effect: "slide", // removed 'fade' to reduce flicker
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
@@ -231,17 +230,16 @@
         },
       });
 
-      // Media Swiper (use "slide" effect to avoid flicker)
+      // MEDIA Swiper (no loop, default "slide" effect)
       const mediaSwiper = new Swiper(".media-swiper", {
-        loop: true,
         slidesPerView: 1,
-        spaceBetween: 30,
-        speed: 700, // transition speed in ms
+        spaceBetween: 0,
+        effect: "slide",
+        speed: 600,
         autoplay: {
-          delay: 2000, // 2 seconds
+          delay: 3500, // 3.5 seconds
           disableOnInteraction: false,
         },
-        effect: "slide", // removed 'fade' to reduce flicker
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
@@ -256,11 +254,11 @@
         },
       });
 
-      // Hamburger Menu Toggle
-      const hamburger = document.querySelector(".hamburger");
+      // HAMBURGER MENU
+      const hamburgerBtn = document.querySelector(".hamburger");
       const navWrapper = document.querySelector(".nav-wrapper");
 
-      hamburger.addEventListener("click", () => {
+      hamburgerBtn.addEventListener("click", () => {
         navWrapper.classList.toggle("open-nav");
       });
     });

@@ -1,4 +1,6 @@
-/* Base Styling */
+/* ------------------------- */
+/* Base Styling & Variables  */
+/* ------------------------- */
 :root {
     --primary-color: #e52d27;
     --secondary-color: #ffa500;
@@ -23,28 +25,25 @@
     overflow-x: hidden;
   }
   
-  /* Remove tap highlight on mobile */
   * {
     -webkit-tap-highlight-color: transparent;
   }
   
-  /* Images fade-in when loaded */
+  /* Fade images in when loaded */
   img {
     max-width: 100%;
     height: auto;
     opacity: 0;
     transition: opacity 0.3s ease-in;
   }
-  
   img.loaded {
     opacity: 1;
   }
   
-  /* -------------------------------- */
-  /* HERO (Header) STYLING            */
-  /* -------------------------------- */
+  /* ------------------------- */
+  /* Hero Section (Header)     */
+  /* ------------------------- */
   .hero {
-    /* Subtle red gradient background */
     background: linear-gradient(
       135deg,
       rgba(229, 45, 39, 1) 0%,
@@ -65,7 +64,6 @@
     padding: 2rem var(--spacing-unit);
   }
   
-  /* Optional background logo overlay */
   .hero::after {
     content: "";
     position: absolute;
@@ -102,45 +100,41 @@
     margin-top: 0.5rem;
   }
   
-  /* -------------------------------- */
-  /* NAVIGATION (Hamburger + Nav)     */
-  /* -------------------------------- */
-  /* Wrapper holds hamburger & nav side by side (or stacked on mobile) */
+  /* ------------------------- */
+  /* Navigation & Hamburger    */
+  /* ------------------------- */
   .nav-wrapper {
     position: relative;
     background-color: rgba(36, 36, 36, 0.95);
     backdrop-filter: blur(10px);
+    /* Initially collapsed on mobile, expanded on desktop */
   }
   
-  /* HAMBURGER ICON */
   .hamburger {
-    display: none; /* hidden by default, shown on mobile */
-    background: none;
-    border: none;
-    cursor: pointer;
-    width: 45px;
-    height: 45px;
     position: absolute;
     top: 10px;
     right: 15px;
-    z-index: 1500;
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    display: none; /* shown on mobile in media query */
+    z-index: 1001; /* above nav */
   }
   
   .hamburger span {
     display: block;
     width: 70%;
     height: 3px;
-    margin: 6px auto;
+    margin: 5px auto;
     background-color: #fff;
     transition: 0.3s ease;
     border-radius: 2px;
   }
   
-  /* NAV */
   nav {
-    /* On desktop, nav is visible by default */
-    width: 100%;
-    transition: max-height 0.4s ease;
+    transition: max-height 0.3s ease;
   }
   
   .navbar {
@@ -169,26 +163,26 @@
     transform: translateY(-2px);
   }
   
-  /* If .open-nav is toggled, show or hide the nav on smaller screens */
+  /* Toggled Class (Open Navigation in Mobile) */
   .nav-wrapper.open-nav nav {
-    max-height: 500px; /* enough space for all links */
+    max-height: 500px; /* Enough space for all menu links */
     overflow: hidden;
   }
   
-  /* By default on mobile, nav is hidden (we’ll override in media query) */
+  /* By default, hide nav on small screens (we override in media queries) */
   @media (max-width: 768px) {
+    nav {
+      max-height: 0;
+      overflow: hidden;
+    }
     .hamburger {
       display: block;
     }
-    nav {
-      max-height: 0; 
-      overflow: hidden; 
-    }
   }
   
-  /* -------------------------------- */
-  /* SECTIONS & GENERAL STYLES        */
-  /* -------------------------------- */
+  /* ------------------------- */
+  /* Main Sections Styles      */
+  /* ------------------------- */
   main {
     max-width: 1200px;
     margin: 0 auto;
@@ -209,9 +203,19 @@
     text-align: center;
     animation: fadeIn 0.6s ease-out;
   }
-  
   .animated-section:hover {
     transform: translateY(-5px);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
   
   h2 {
@@ -243,7 +247,6 @@
   }
   
   .section-content p {
-    text-align: center;
     margin-bottom: 1.5rem;
   }
   
@@ -272,27 +275,25 @@
     color: var(--primary-color);
   }
   
-  /* -------------------------------- */
-  /* SWIPER (Awards & Media)          */
-  /* -------------------------------- */
+  /* ------------------------- */
+  /* SWIPER (Awards & Media)   */
+  /* ------------------------- */
   .swiper-container {
     width: 100%;
     max-width: 800px;
-    height: 450px; /* Adjust for desktop */
+    height: 450px;
     margin: 2rem auto;
     border-radius: 15px;
     overflow: hidden;
     position: relative;
     background: var(--background-dark);
   
-    /* Flex to center content */
     display: flex;
     align-items: center;
     justify-content: center;
   }
   
   .swiper-slide {
-    /* Ensure slides take full container height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -302,13 +303,12 @@
   .swiper-slide img {
     max-width: 100%;
     max-height: 100%;
-    object-fit: contain; /* keep aspect ratio, no cropping */
+    object-fit: contain;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     transition: opacity 0.3s ease-in;
   }
   
-  /* Swiper Buttons */
   .swiper-button-next,
   .swiper-button-prev {
     color: #fff;
@@ -330,7 +330,6 @@
     font-size: 20px;
   }
   
-  /* Swiper Pagination */
   .swiper-pagination-bullet {
     background: #fff;
     opacity: 0.6;
@@ -341,9 +340,9 @@
     opacity: 1;
   }
   
-  /* -------------------------------- */
-  /* CONTACT SECTION                  */
-  /* -------------------------------- */
+  /* ------------------------- */
+  /* Contact Section           */
+  /* ------------------------- */
   .contact-card {
     background: linear-gradient(
       45deg,
@@ -378,17 +377,14 @@
     text-align: center;
     transition: transform 0.3s ease;
   }
-  
   .branch-card:hover {
     transform: translateY(-5px);
   }
-  
   .branch-card h3 {
     margin-top: 0;
     color: var(--secondary-color);
     margin-bottom: 0.5rem;
   }
-  
   .branch-card p {
     margin: 0;
     font-size: 1rem;
@@ -401,15 +397,14 @@
     margin: 1.5rem 0;
     text-align: center;
   }
-  
   .contact-info li {
     margin: 1rem 0;
     font-size: 1.1rem;
   }
   
-  /* -------------------------------- */
-  /* FOOTER                           */
-  /* -------------------------------- */
+  /* ------------------------- */
+  /* Footer                    */
+  /* ------------------------- */
   footer {
     background-color: var(--background-light);
     text-align: center;
@@ -417,7 +412,6 @@
     margin-top: 4rem;
   }
   
-  /* Heading Styles */
   h3 {
     background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
     background-clip: text;
@@ -429,37 +423,10 @@
     margin-bottom: 1rem;
   }
   
-  /* Animations */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  /* For sections */
-  @keyframes loading {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      transform: translateX(100%);
-    }
-  }
-  
-  .animated-section {
-    animation: fadeIn 0.6s ease-out;
-  }
-  
-  /* Loading State */
+  /* Loading State (if used anywhere) */
   .loading {
     position: relative;
   }
-  
   .loading::after {
     content: "";
     position: absolute;
@@ -475,21 +442,26 @@
     );
     animation: loading 1.5s infinite;
   }
+  @keyframes loading {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
   
   /* Custom Scrollbar */
   ::-webkit-scrollbar {
     width: 10px;
   }
-  
   ::-webkit-scrollbar-track {
     background: var(--background-dark);
   }
-  
   ::-webkit-scrollbar-thumb {
     background: var(--primary-color);
     border-radius: 5px;
   }
-  
   ::-webkit-scrollbar-thumb:hover {
     background: var(--secondary-color);
   }
@@ -500,39 +472,35 @@
     outline: 2px solid var(--secondary-color);
     outline-offset: 2px;
   }
-  
   :focus-visible {
     outline: 2px solid var(--secondary-color);
     outline-offset: 2px;
   }
-  
   ::selection {
     background-color: var(--primary-color);
     color: var(--text-color);
   }
   
-  /* -------------------------------- */
-  /* RESPONSIVE DESIGN                */
-  /* -------------------------------- */
+  /* ------------------------- */
+  /* RESPONSIVE DESIGN         */
+  /* ------------------------- */
   @media (max-width: 768px) {
     .hero {
       min-height: 300px;
     }
-  
     .main-title {
       font-size: 2.2rem;
     }
-  
     .subtitle {
       font-size: 1.2rem;
     }
   
-    /* On mobile, hamburger is shown, nav is collapsed by default */
+    /* Hamburger visible */
     .hamburger {
       display: block;
     }
   
-    /* If .open-nav is toggled, expand nav */
+    /* If open-nav toggled, show nav */
     .nav-wrapper.open-nav nav {
       max-height: 300px;
     }
@@ -540,25 +508,20 @@
     .animated-section {
       padding: 1.5rem;
     }
-  
     h2 {
       font-size: 2rem;
     }
-  
     .logo {
       width: 150px;
     }
-  
     .swiper-container {
-      height: 350px; /* smaller on tablets */
+      height: 350px;
     }
-  
     .swiper-button-next,
     .swiper-button-prev {
       width: 30px;
       height: 30px;
     }
-  
     .swiper-button-next:after,
     .swiper-button-prev:after {
       font-size: 16px;
@@ -569,38 +532,30 @@
     .hero {
       min-height: 250px;
     }
-  
     .main-title {
       font-size: 1.8rem;
     }
-  
     .subtitle {
       font-size: 1rem;
     }
-  
     .contact-card {
       padding: 1rem;
     }
-  
     .animated-section {
       padding: 1rem;
       margin: 1rem auto;
     }
-  
     .highlighted-event {
       padding: 1rem;
     }
-  
     .logo {
       width: 120px;
     }
-  
     .section-content {
       font-size: 1rem;
     }
-  
     .swiper-container {
-      height: 250px; /* smaller on mobile */
+      height: 250px;
     }
   }
   
@@ -632,8 +587,8 @@
       min-height: auto;
     }
     .animated-section {
-      break-inside: avoid;
       box-shadow: none;
+      break-inside: avoid;
     }
   }
   
