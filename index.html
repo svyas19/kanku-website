@@ -25,17 +25,17 @@
   />
 </head>
 <body>
-  <!-- HERO (Header) -->
-  <header class="hero">
+
+<!-- HERO (Header) -->
+<header class="hero">
     <div class="hero-content">
       <div class="logo-container">
-        <img src="photos/logo/Final_Logo.jpg" alt="Kanku Kala Kendra Logo" class="logo" />
+        <img src="photos/logo/Final_Logo.jpg" alt="Kanku Kala Kendra Logo" class="logo">
       </div>
       <h1 class="main-title">Experience Kathak Like Never Before</h1>
       <p class="subtitle">Guided by Guru Smt. Pashmina Vyas Upadhyay</p>
     </div>
   </header>
-
   <!-- NAV WRAPPER (Hamburger + Nav) -->
   <div class="nav-wrapper">
     <!-- Hamburger Icon -->
@@ -90,55 +90,58 @@
         </p>
       </div>
     </section>
-    
-    <!-- AWARDS SECTION -->
-    <section id="awards" class="animated-section">
-      <h2>Awards & Recognition</h2>
-      <div class="awards-content">
-        <h3>International & National Achievements</h3>
-        <ul>
-          <li>Represented India in the 9th PBRU International Musical & Dance Festival in Thailand.</li>
-          <li>Winner of World Records of Indian Awards.</li>
-          <li>Won 6 Awards at All India Dance Academy.</li>
-        </ul>
-        <p>
-          These accolades reflect the hard work and dedication of our students and mentors, showcasing the timeless beauty of Kathak on global platforms.
-        </p>
+   
+
+<!-- AWARDS SECTION -->
+<section id="awards" class="animated-section">
+    <h2>Awards & Recognition</h2>
+    <div class="awards-content">
+      <h3>International & National Achievements</h3>
+      <ul>
+        <li>Represented India in the 9th PBRU International Musical & Dance Festival in Thailand.</li>
+        <li>Winner of World Records of Indian Awards.</li>
+        <li>Won 6 Awards at All India Dance Academy.</li>
+      </ul>
+      <p>These accolades reflect the hard work and dedication of our students and mentors, showcasing the timeless beauty of Kathak on global platforms.</p>
+    </div>
+    <!-- Swiper for Awards -->
+    <div class="swiper-container awards-swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img src="photos/awards/award1.jpg" alt="Award Achievement 1" loading="lazy">
+        </div>
       </div>
-      <!-- Swiper for Awards -->
-      <div class="swiper-container awards-swiper">
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </section>
+
+
+
+   <!-- MEDIA SECTION -->
+<section id="media" class="animated-section">
+    <h2>Media Coverage</h2>
+    <div class="section-content">
+      <p>Kanku Kala Kendra and its talented students have been featured in various media outlets:</p>
+      <div class="swiper-container media-swiper">
         <div class="swiper-wrapper">
           <div class="swiper-slide">
-            <img src="photos/awards/award1.jpg" alt="Award Achievement 1" loading="lazy" />
+            <img src="photos/media/media1.jpg" alt="Media Feature 1" loading="lazy">
           </div>
-          
+          <div class="swiper-slide">
+            <img src="photos/media/media2.jpg" alt="Media Feature 2" loading="lazy">
+          </div>
         </div>
-        <!-- Swiper Pagination & Navigation -->
         <div class="swiper-pagination"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-button-next"></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- MEDIA SECTION -->
-    <section id="media" class="animated-section">
-      <h2>Media Coverage</h2>
-      <div class="section-content">
-        <p>Kanku Kala Kendra and its talented students have been featured in various media outlets:</p>
-        <div class="swiper-container media-swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide">
-                <img src="photos/media/media1.jpg" alt="Media Feature 1" loading="lazy" />
-                <img src="photos/media/media2.jpg" alt="Media Feature 2" loading="lazy" />
-                
-            </div>
-          </div>
-          <div class="swiper-pagination"></div>
-          <div class="swiper-button-prev"></div>
-          <div class="swiper-button-next"></div>
-        </div>
-      </div>
-    </section>
+
+
 
     <!-- CONTACT SECTION -->
     <section id="contact" class="animated-section">
@@ -174,9 +177,10 @@
   <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
 
-  <!-- Main JS -->
-  <script>
+<!-- Main JS -->
+<script>
     document.addEventListener("DOMContentLoaded", () => {
+      // Initialize Awards Swiper
       const awardsSwiper = new Swiper(".awards-swiper", {
         slidesPerView: 1,
         effect: "slide",
@@ -194,8 +198,14 @@
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
+        loop: true, // Enable continuous loop
+        grabCursor: true, // Changes cursor to grab when hovering
+        keyboard: {
+          enabled: true, // Enable keyboard navigation
+        },
       });
 
+      // Initialize Media Swiper
       const mediaSwiper = new Swiper(".media-swiper", {
         slidesPerView: 1,
         effect: "slide",
@@ -213,13 +223,71 @@
           nextEl: ".swiper-button-next",
           prevEl: ".swiper-button-prev",
         },
+        loop: true, // Enable continuous loop
+        grabCursor: true, // Changes cursor to grab when hovering
+        keyboard: {
+          enabled: true, // Enable keyboard navigation
+        },
       });
 
+      // Handle image loading transitions
+      const images = document.querySelectorAll('img');
+      images.forEach(img => {
+        // Check if image is already loaded
+        if (img.complete) {
+          img.classList.add('loaded');
+        } else {
+          // Add loaded class when image loads
+          img.addEventListener('load', () => {
+            img.classList.add('loaded');
+          });
+          // Handle error case
+          img.addEventListener('error', () => {
+            console.error('Error loading image:', img.src);
+          });
+        }
+      });
+
+      // Handle hamburger menu
       const hamburgerBtn = document.querySelector(".hamburger");
       const navWrapper = document.querySelector(".nav-wrapper");
+      const navLinks = document.querySelectorAll('.nav-link');
 
       hamburgerBtn.addEventListener("click", () => {
         navWrapper.classList.toggle("open-nav");
+      });
+
+      // Close mobile menu when clicking a link
+      navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          if (navWrapper.classList.contains('open-nav')) {
+            navWrapper.classList.remove('open-nav');
+          }
+        });
+      });
+
+      // Close mobile menu when clicking outside
+      document.addEventListener('click', (event) => {
+        if (!navWrapper.contains(event.target) && !hamburgerBtn.contains(event.target)) {
+          navWrapper.classList.remove('open-nav');
+        }
+      });
+
+      // Smooth scroll for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('href');
+          if (targetId === '#') return;
+          
+          const targetElement = document.querySelector(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
       });
     });
   </script>
